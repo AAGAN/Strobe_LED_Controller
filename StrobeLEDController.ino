@@ -1,3 +1,18 @@
+/***************************************************
+  This is an example sketch for the Adafruit 1.8" TFT shield with joystick
+  ----> http://www.adafruit.com/products/802
+
+  Check out the links above for our tutorials and wiring diagrams
+  These displays use SPI to communicate, 4 pins are required to
+  interface
+  One pin is also needed for the joystick, we use analog 3
+  Adafruit invests time and resources providing this open source code,
+  please support Adafruit and open-source hardware by purchasing
+  products from Adafruit!
+
+  Written by Limor Fried/Ladyada for Adafruit Industries.
+  MIT license, all text above must be included in any redistribution
+ ****************************************************/
 /*
 strobe using adafruit shield
 */
