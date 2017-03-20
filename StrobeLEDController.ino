@@ -1,7 +1,6 @@
 /***************************************************
   This is an example sketch for the Adafruit 1.8" TFT shield with joystick
   ----> http://www.adafruit.com/products/802
-
   Check out the links above for our tutorials and wiring diagrams
   These displays use SPI to communicate, 4 pins are required to
   interface
@@ -9,7 +8,6 @@
   Adafruit invests time and resources providing this open source code,
   please support Adafruit and open-source hardware by purchasing
   products from Adafruit!
-
   Written by Limor Fried/Ladyada for Adafruit Industries.
   MIT license, all text above must be included in any redistribution
  ****************************************************/
@@ -84,9 +82,10 @@ void loop() {
   }
   else if (frequency == 0)
   {
-    digitalWrite(red_pin, HIGH);
-    digitalWrite(green_pin, HIGH);
-    digitalWrite(blue_pin, HIGH);
+//    digitalWrite(red_pin, LOW);
+//    digitalWrite(green_pin, LOW);
+//    digitalWrite(blue_pin, LOW);
+    strobe_on();
   }
   
   if (currentMillis - buttonMillis > 150)
@@ -136,35 +135,42 @@ void strobe_on()
   switch (strobe_color)
   {
     case 0:
-      digitalWrite(red_pin, HIGH);
-      digitalWrite(green_pin, HIGH);
-      digitalWrite(blue_pin, HIGH);
+      digitalWrite(red_pin, LOW);
+      digitalWrite(green_pin, LOW);
+      digitalWrite(blue_pin, LOW);
       break;
     case 1:
-      digitalWrite(red_pin, HIGH);
+      digitalWrite(red_pin, LOW);
+      digitalWrite(green_pin,HIGH);
+      digitalWrite(blue_pin,HIGH);
       break;
     case 2:
-      digitalWrite(green_pin, HIGH);
+      digitalWrite(green_pin, LOW);
+      digitalWrite(red_pin, HIGH);
+      digitalWrite(blue_pin,HIGH);
       break;
     case 3:
-      digitalWrite(blue_pin, HIGH);
+      digitalWrite(blue_pin, LOW);
+      digitalWrite(red_pin, HIGH);
+      digitalWrite(green_pin,HIGH);
       break;
     case 4:
-      digitalWrite(red_pin, HIGH);
-      digitalWrite(blue_pin, HIGH);
+      digitalWrite(red_pin, LOW);
+      digitalWrite(blue_pin, LOW);
+      digitalWrite(green_pin,HIGH);
       break;
     default:
-      digitalWrite(red_pin, HIGH);
-      digitalWrite(green_pin, HIGH);
-      digitalWrite(blue_pin, HIGH);
+      digitalWrite(red_pin, LOW);
+      digitalWrite(green_pin, LOW);
+      digitalWrite(blue_pin, LOW);
   }
 }
 
 void strobe_off()
 {
-  digitalWrite(red_pin, LOW);
-  digitalWrite(blue_pin,LOW);
-  digitalWrite(green_pin,LOW);
+  digitalWrite(red_pin, HIGH);
+  digitalWrite(blue_pin,HIGH);
+  digitalWrite(green_pin,HIGH);
 }
 
 void update_strobe_color()
