@@ -82,9 +82,6 @@ void loop() {
   }
   else if (frequency == 0)
   {
-//    digitalWrite(red_pin, LOW);
-//    digitalWrite(green_pin, LOW);
-//    digitalWrite(blue_pin, LOW);
     strobe_on();
   }
   
@@ -141,23 +138,23 @@ void strobe_on()
       break;
     case 1:
       digitalWrite(red_pin, LOW);
-      digitalWrite(green_pin,HIGH);
-      digitalWrite(blue_pin,HIGH);
+      //digitalWrite(green_pin,HIGH);
+      //digitalWrite(blue_pin,HIGH);
       break;
     case 2:
       digitalWrite(green_pin, LOW);
-      digitalWrite(red_pin, HIGH);
-      digitalWrite(blue_pin,HIGH);
+      //digitalWrite(red_pin, HIGH);
+      //digitalWrite(blue_pin,HIGH);
       break;
     case 3:
       digitalWrite(blue_pin, LOW);
-      digitalWrite(red_pin, HIGH);
-      digitalWrite(green_pin,HIGH);
+      //digitalWrite(red_pin, HIGH);
+      //digitalWrite(green_pin,HIGH);
       break;
     case 4:
       digitalWrite(red_pin, LOW);
       digitalWrite(blue_pin, LOW);
-      digitalWrite(green_pin,HIGH);
+      //digitalWrite(green_pin,HIGH);
       break;
     default:
       digitalWrite(red_pin, LOW);
@@ -199,16 +196,13 @@ void show_Hertz()
 }
 
 uint8_t readButton(void) {
-  float a = analogRead(3);
-  
-  a *= 5.0;
-  a /= 1024.0;
+  int a = analogRead(3);
 
-  if (a < 0.2) return BUTTON_DOWN;
-  if (a < 1.0) return BUTTON_RIGHT;
-  if (a < 1.5) return BUTTON_SELECT;
-  if (a < 2.0) return BUTTON_UP;
-  if (a < 3.2) return BUTTON_LEFT;
+  if (a < 40) return BUTTON_DOWN;
+  if (a < 204) return BUTTON_RIGHT;
+  if (a < 307) return BUTTON_SELECT;
+  if (a < 409) return BUTTON_UP;
+  if (a < 654) return BUTTON_LEFT;
   else return BUTTON_NONE;
 }
 
